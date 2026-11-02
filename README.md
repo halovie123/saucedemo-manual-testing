@@ -1,4 +1,4 @@
-<img width="1425" height="891" alt="image" src="https://github.com/user-attachments/assets/1256a80a-a971-4cfc-9418-b72f1f1b41ef" /># Swag Labs (SauceDemo) – Manual Testing Project
+Swag Labs (SauceDemo) – Manual Testing Project
 
 Manual testing of the demo e-commerce site [Swag Labs](https://www.saucedemo.com), done as Project 1 of my self-study path in software testing, based on the ISTQB CTFL v4.0.1 syllabus.
 
