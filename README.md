@@ -1,122 +1,121 @@
-Swag Labs (SauceDemo) – Manual Testing Project
+# SauceDemo | Manual Testing Portfolio
 
-Manual testing of the demo e-commerce site [Swag Labs](https://www.saucedemo.com), done as Project 1 of my self-study path in software testing, based on the ISTQB CTFL v4.0.1 syllabus.
+![Status](https://img.shields.io/badge/Test%20Execution-74%2F74-2563eb)
+![Pass Rate](https://img.shields.io/badge/Pass%20Rate-78.38%25-f59e0b)
+![Release](https://img.shields.io/badge/Release-NOT%20READY-dc2626)
 
-**Author:** Phạm Thanh Vy · **Period:** Oct – Nov 2026 · **Role:** Tester (also test management)
+> A manual testing portfolio for the [Swag Labs (SauceDemo)](https://www.saucedemo.com/) sample e-commerce application, aligned with the **ISTQB Certified Tester Foundation Level (CTFL) v4.0.1** syllabus.
+>
+> **Author:** Phạm Thanh Vy · **Project period:** October–November 2026 · **Latest test summary:** November 7, 2026
 
----
+## Project overview
 
-## Deliverables
-
-| Deliverable | Link |
-|---|---|
-| Test plan (scope, approach, risks, entry/exit criteria) | [Saucedemo – Test Plan](https://docs.google.com/document/d/1qDFjcmVy5oGG22HZnLXAYfEStl3pQzyDXRRV5QkfQC8/edit?usp=sharing) |
-| Requirements, test cases, RTM, bug reports, exploratory notes | [Saucedemo – Test cases (Google Sheet)](https://docs.google.com/spreadsheets/d/1RohdAC92pyPIa1F65Ztnpomn5BitYWi59uj_60wFYho/edit?usp=sharing) |
-| Scrum board, bugs and saved JQL filters | Jira Cloud (private workspace, see screenshots below) |
+This project demonstrates a complete manual testing workflow: planning, requirement analysis, test design, execution, defect reporting, requirement traceability, and test completion reporting. It also includes a small Scrum/Jira workflow for managing stories and reported defects. The system under test (SUT) is a public demonstration website; it is not a production release controlled by this project.
 
 ## Scope
 
-- **In scope:** 6 requirements: login, product list, sorting, cart, checkout, logout.
-- **Out of scope:** in-depth performance and security testing, mobile app. Only basic observations were recorded.
-- **Test basis:** the site has no specification, so the 6 requirements were written as assumptions. Expected results without a clear basis are marked "to be confirmed with BA".
-- **Environment:** Brave 1.98.60, Windows 11. Accounts: `standard_user`, `problem_user`, `locked_out_user`, `performance_glitch_user`.
+**In scope:** Six functional requirements — **Login, Product listing, Sorting, Cart, Checkout, and Logout**. The test environment was **Brave 1.98.60 on Windows 11**, with the four SauceDemo test accounts `standard_user`, `problem_user`, `locked_out_user`, and `performance_glitch_user`.
 
-## Test design
+**Out of scope:** In-depth performance and security testing, cross-browser certification, and mobile application testing. Basic observations about these areas are not comprehensive coverage. Because there is no formal product specification available for this demo site, some expected results are documented as assumptions pending clarification with a business analyst (BA).
 
-75 test cases (74 in scope, 1 out of scope). Each test case records the technique used to derive it.
+## Test approach and techniques
 
-| Technique | Test cases | Used for |
-|---|---|---|
-| Equivalence partitioning | 16 | Account types (standard vs problem user), sort options, invalid usernames |
-| Boundary value analysis | 4 | Cart badge at 0, 1 and 6 items |
-| Decision table | 8 | Login rules, checkout information fields |
-| State transition | 13 | Purchase flow, logout, direct URL access without login |
-| Business flows (main, alternative, exception) | 9 | Checkout |
-| Error guessing | 11 | Spaces in username, sort order after reload, cart after logout |
-| Checklist-based | 14 | Product page content, price format, password masking |
+The test approach combined **requirements-based functional testing**, **risk-based prioritization**, **black-box test design**, and **time-boxed exploratory testing**. Test cases were linked to requirements using a requirements traceability matrix (RTM). Failures were rechecked before filing defects, with open questions retained where expected behavior was unclear.
 
-White-box techniques (statement and branch coverage) were not applicable because the source code is not available.
+| Test design technique | Cases | Application |
+| :-- | --: | :-- |
+| Equivalence Partitioning (EP) | 16 | Valid/invalid accounts and sorting options |
+| Boundary Value Analysis (BVA) | 4 | Cart badge boundaries (0, 1, and 6 items) |
+| Decision Tables | 8 | Login rules and checkout information validation |
+| State Transition Testing | 13 | Purchase workflow, logout, and direct URL access |
+| Business Flows | 9 | Main, alternative, and exception checkout paths |
+| Error Guessing | 11 | Whitespace, navigation, reloading, and session-related cases |
+| Checklist-Based Testing | 14 | Product content, price presentation, and password masking |
+| **Total** | **75** | **74 in scope; 1 N/A/out of scope** |
 
-I also ran two time-boxed exploratory sessions with a charter, and practised EP, BVA, decision tables and state transition diagrams on separate exercises (see the Sheet).
+Source-code-dependent statement and branch coverage could not be measured because the application's source code was not available to the tester.
+
+## Tools
+
+| Tool | Purpose |
+| :-- | :-- |
+| **Brave browser** | Executing test cases and observing application behavior |
+| **Google Sheets / Microsoft Excel** | Test cases, execution status, RTM, bug reports, and exploratory notes |
+| **Google Docs / PDF** | Test plan and test summary report |
+| **Jira Cloud (Scrum)** | One Epic, six Stories, defect tracking, and a Sprint board |
+| **Git / GitHub** | Version control, packaging, and portfolio presentation |
 
 ## Results
 
-All 74 in-scope test cases were executed.
+**Baseline:** Updated RTM and Test Summary Report v1.0, **November 7, 2026**. Results below replace the earlier, outdated 59-pass/15-fail summary.
 
-| Requirement | Test cases | Pass | Fail | Bugs |
-|---|---|---|---|---|
-| REQ_LOGIN | 12 | 11 | 1 | – (awaiting BA) |
-| REQ_PRODUCT | 12 | 9 | 3 | BUG_002, BUG_003, BUG_007 |
-| REQ_SORT | 10 | 8 | 2 | – (awaiting BA) |
-| REQ_CART | 16 | 10 | 6 | BUG_004, BUG_005, BUG_008, BUG_009 |
-| REQ_CHECKOUT | 17 | 14 | 3 | BUG_001, BUG_006 |
-| REQ_LOGOUT | 7 | 7 | 0 | – |
-| **Total** | **74** | **59** | **15** | **9 bugs** |
+| Requirement | Test cases | Executed | Pass | Fail | Blocked | Pass rate |
+| :-- | --: | --: | --: | --: | --: | --: |
+| REQ_LOGIN | 12 | 12 | 11 | 1 | 0 | 91.67% |
+| REQ_PRODUCT | 12 | 12 | 9 | 3 | 0 | 75.00% |
+| REQ_SORT | 10 | 10 | 7 | 3 | 0 | 70.00% |
+| REQ_CART | 16 | 16 | 10 | 6 | 0 | 62.50% |
+| REQ_CHECKOUT | 17 | 17 | 14 | 3 | 0 | 82.35% |
+| REQ_LOGOUT | 7 | 7 | 7 | 0 | 0 | 100.00% |
+| **TOTAL** | **74** | **74** | **58** | **16** | **0** | **78.38%** |
 
-Of the 15 failed test cases, 11 are linked to bug reports and 4 are waiting for clarification of the expected behaviour (see Open questions).
+- **Test suite:** 75 cases designed, of which 1 case was out of scope (`N/A`); all **74 in-scope** cases were executed.
+- **Problem-user rerun (November 7):** 12 high-priority cases executed — **7 passed and 5 failed**.
+- **High-priority coverage:** All 25 of 25 high-priority cases in TestCases were executed.
+- **Defects:** 10 SauceDemo bugs recorded in the updated BugReports sheet (**1 Critical, 8 Major, 1 Minor**). One additional exploratory bug involving a different website is **excluded** from SauceDemo totals.
+- **Release recommendation: NOT READY FOR RELEASE.** At the November 7 reporting baseline, `BUG_006` was still marked **Critical / New**, so the “no open Critical defect” exit criterion was not satisfied. Current live Jira status was not reverified for this portfolio snapshot.
+- Four test failures involve expected behavior that still requires BA clarification, rather than a confirmed product defect.
 
-## Bugs found
+## Sample bugs and evidence
 
-10 bug reports (1 Critical, 7 Major, 2 Minor): 9 on Swag Labs and 1 on [The Internet (herokuapp)](https://the-internet.herokuapp.com) from an exploratory session. Each report has environment, preconditions, numbered steps, expected and actual results, frequency (3/3), severity, priority, related test case and screenshots.
+Screenshots below are **original evidence extracted from the existing test-case workbook**, not simulated UI images. The Jira project is private; references to issue IDs are for traceability.
 
-| ID | Jira | Title | Severity | Priority |
-|---|---|---|---|---|
-| BUG_001 | SD-8 | [Checkout] Order can be completed with an empty cart | Major | Medium |
-| BUG_002 | SD-9 | [Product] problem_user: detail page shows wrong product | Major | Medium |
-| BUG_003 | SD-10 | [Product] problem_user: all products show the same image | Minor | Medium |
-| BUG_004 | SD-11 | [Cart] problem_user: Remove on Products page has no effect | Major | Medium |
-| BUG_005 | SD-12 | [Cart] problem_user: 3 products cannot be added from list | Major | High |
-| BUG_006 | SD-13 | [Checkout] problem_user: Last Name input goes to First Name | Critical | High |
-| BUG_007 | SD-14 | [Product] problem_user: Remove on detail page has no effect | Major | Medium |
-| BUG_008 | SD-15 | [Cart] problem_user: badge count is 1 higher than cart | Major | Medium |
-| BUG_009 | SD-16 | [Product] problem_user: detail Add to cart has no effect | Major | Medium |
-| BUG_010 | SD-17 | [Broken Images] 2 of 3 images fail to load | Minor | Medium |
+| Bug ID / Jira | Severity | Issue | Evidence |
+| :-- | :-- | :-- | :-- |
+| **BUG_001 / SD-8** | Major | Checkout can be completed with an empty cart. | [Empty-cart checkout](screenshots/BUG_001_empty_cart_checkout.png) · [Order confirmation](screenshots/BUG_001_order_confirmation.png) |
+| **BUG_003 / SD-10** | Minor | `problem_user`: all product cards show the same incorrect dog image. | [Incorrect product images](screenshots/BUG_003_incorrect_product_images.png) |
+| **BUG_006 / SD-13** | Critical | `problem_user`: typing in the Last Name field affects First Name, blocking normal checkout. | [Checkout input evidence](screenshots/BUG_006_checkout_name_input.png) |
 
-**Finding I am most proud of (BUG_008):** the cart badge was always 1 higher than the real number of items. Instead of reporting only the symptom, I traced it to a hidden item in the cart: a product page showing "ITEM NOT FOUND" with price "$√-1" (`inventory-item.html?id=6`), which cannot be removed.
+**Jira board screenshot:** Not included in the verified source files. Add your actual Jira Scrum-board image at `screenshots/jira-sprint-board.png` before final submission; see [screenshots instructions](screenshots/README.md). Do not substitute a fabricated screenshot.
 
-## Jira (Scrum)
+## Deliverables
 
-- **Structure:** 1 Epic (Swag Labs testing), 6 Stories with acceptance criteria (one per requirement), 10 Bugs linked to the affected story with "relates to".
-- **Sprint 1:** started with a sprint goal; stories moved across To Do, In Progress and Done.
-- **Severity** is stored as a label (`severity-major`…) because Jira Free has no severity field. **Priority** uses the Jira Priority field.
+```text
+manual-testing-saucedemo/
+├── README.md
+├── test-plan/
+│   └── Test_Plan.pdf
+├── test-cases/
+│   └── Saucedemo_TestCases.xlsx
+├── reports/
+│   └── Test_Summary_Report.pdf
+└── screenshots/
+    ├── README.md
+    ├── BUG_001_empty_cart_checkout.png
+    ├── BUG_001_order_confirmation.png
+    ├── BUG_003_incorrect_product_images.png
+    ├── BUG_006_checkout_name_input.png
+    └── jira-sprint-board.png  # add the authentic Jira screenshot
+```
 
-Saved JQL filters:
+The last line is a **required follow-up asset** and is intentionally absent from the package until an authentic image is provided. The `test-cases` workbook contains the detailed RTM, BugReports, and execution history.
 
-| Filter | JQL | Purpose |
-|---|---|---|
-| SD – Open bugs | `project = SD AND issuetype = Bug AND statusCategory != Done` | All bugs not yet done |
-| SD – High priority bugs | `project = SD AND issuetype = Bug AND priority in (Highest, High)` | Bugs to fix first |
-| SD – Current sprint | `project = SD AND sprint in openSprints()` | Everything in the open sprint |
+Original working documents: [Test Plan (Google Docs)](https://docs.google.com/document/d/1qDFjcmVy5oGG22HZnLXAYfEStl3pQzyDXRRV5QkfQC8/edit) · [Test Cases / RTM (Google Sheets)](https://docs.google.com/spreadsheets/d/1RohdAC92pyPIa1F65Ztnpomn5BitYWi59uj_60wFYho/edit).
 
-**Sprint board**
+## Lessons learned
 
-<img width="713" height="446" alt="Screenshot 2026-11-02 231306" src="https://github.com/user-attachments/assets/d63eca28-ec96-489b-a89f-23fd6125c809" />
+1. **Check expected results before raising defects.** Unclear business rules should become BA questions, not automatic bug reports.
+2. **Choose techniques that suit the problem.** EP/BVA fit input classes and boundaries; decision tables fit rule combinations; state transitions fit user journeys.
+3. **Retest apparent failures.** A misleading test step or a non-reproducible outcome should not become a confirmed defect.
+4. **Preserve traceability.** Linking requirement → test case → defect → Jira story made coverage and priorities easier to review.
+5. **Treat the release decision as evidence-based.** A high execution rate or good pass rate does not override an unmet Critical-defect exit criterion.
+6. **Maintain one source of truth.** The RTM and completion report must be synchronized; earlier README totals should be replaced when the rerun changes results.
 
+## ISTQB references and next study focus
 
-**Open bugs**
+- [ISTQB CTFL v4.0.1 syllabus](https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf), **Section 2.1** — Testing in the context of an SDLC: lifecycle impact, early testing, test-first approaches, DevOps, shift-left, and retrospectives.
+- **Section 5.5** — Defect Management: recording, classifying, tracking, and resolving anomalies; writing actionable defect reports with reproduction steps and expected vs. actual results.
 
-<img width="959" height="485" alt="Screenshot 2026-11-02 233202" src="https://github.com/user-attachments/assets/02f1d3f4-94ac-4b1e-9651-088467f88262" />
+---
 
-
-## Traceability
-
-Requirement → Test case → Bug report (Sheet) → Jira bug → Jira story.
-
-- The RTM tab counts test cases, executed, passed and failed per requirement with formulas, so it updates when a status changes.
-- Each bug report lists the test case that found it and its Jira key. Each Jira bug repeats the Sheet ID and related test case in its description, because Jira Free has no built-in test case management.
-
-## Open questions for BA
-
-Expected results that were assumptions and failed during execution. No bug report was filed until they are confirmed:
-
-1. Should leading and trailing spaces in the username be trimmed? (TC_LOGIN_008)
-2. Should the sort order be kept after opening a product detail page or reloading? (TC_SORT_007, TC_SORT_008)
-3. Should direct access to the checkout overview page be blocked when the cart is empty? (TC_CHK_016)
-
-## What I learned
-
-- Writing expected results that are specific and checkable, and marking assumptions instead of guessing.
-- Choosing a test technique from the nature of the feature: input fields → EP/BVA, combined rules → decision table, flows and states → state transition, display-only pages → checklist.
-- Re-checking a failure before reporting it: one "failed" test turned out to be a wrong test step, and one login failure could not be reproduced.
-- Avoiding duplicate bug reports and resolving contradictions between reports before sending them.
-- Using an RTM to find coverage gaps, and keeping traceability across Google Sheets and Jira.
+*Educational portfolio project. SauceDemo/Swag Labs is a third-party demonstration application; this repository is not affiliated with its operator.*
